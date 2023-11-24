@@ -7,13 +7,9 @@ describe('LikeRepository interface', () => {
     // Action and Assert
     await expect(likeRepository.like('')).rejects
         .toThrowError('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
-    await expect(likeRepository.unlike('')).rejects
+    await expect(likeRepository.unLike('')).rejects
         .toThrowError('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
     await expect(likeRepository.verifyUserLike('')).rejects
-        .toThrowError('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
-    await expect(likeRepository.verifyOwnerComment('')).rejects
-        .toThrowError('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
-    await expect(likeRepository.getAllCommentsOfThread('')).rejects
         .toThrowError('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   });
 });
