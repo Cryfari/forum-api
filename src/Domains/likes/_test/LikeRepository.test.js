@@ -5,9 +5,9 @@ describe('LikeRepository interface', () => {
     // Arrange
     const likeRepository = new LikeRepository();
     // Action and Assert
-    await expect(likeRepository.like('')).rejects
+    await expect(likeRepository.like('', '')).rejects
         .toThrowError('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
-    await expect(likeRepository.unLike('')).rejects
+    await expect(likeRepository.unLike('', '')).rejects
         .toThrowError('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
     await expect(likeRepository.verifyUserLike('', '')).rejects
         .toThrowError('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');

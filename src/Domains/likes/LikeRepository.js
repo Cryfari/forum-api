@@ -4,21 +4,23 @@
 class LikeRepository {
   /**
    * @param {string} commentId
+   * @param {string} owner
    */
-  async like(commentId) {
+  async like(commentId, owner) {
     throw new Error('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
   /**
    * @param {string} commentId
+   * @param {string} owner
    */
-  async unLike(commentId) {
+  async unLike(commentId, owner) {
     throw new Error('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
   /**
    * @param {string} commentId
-   * @param {string} userId
+   * @param {string} owner
    */
-  async verifyUserLike(commentId, userId) {
+  async verifyUserLike(commentId, owner) {
     throw new Error('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
   /**

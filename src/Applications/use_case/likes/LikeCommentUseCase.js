@@ -14,16 +14,16 @@ class LikeCommentUseCase {
   /**
    * @param {string} threadId
    * @param {string} commentId
-   * @param {string} userId
+   * @param {string} owner
    */
-  async execute(threadId, commentId, userId) {
+  async execute(threadId, commentId, owner) {
     await this._threadRepository.verifyAvailableThread(threadId);
     await this._commentRepository.verifyAvailableComment(commentId);
-    const like = await this._likeRepository.verifyUserLike(commentId, userId);
+    const like = await this._likeRepository.verifyUserLike(commentId, owner);
     if (like) {
-      await this._likeRepository.unLike(commentId, userId);
+      await this._likeRepository.unLike(commentId, owner);
     } else {
-      await this._likeRepository.like(commentId, userId);
+      await this._likeRepository.like(commentId, owner);
     }
   }
 }
