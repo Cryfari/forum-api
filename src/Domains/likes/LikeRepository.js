@@ -21,6 +21,12 @@ class LikeRepository {
   async verifyUserLike(commentId, userId) {
     throw new Error('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
+  /**
+   * @param {string} commentId
+   */
+  async getLikeCountOfComment(commentId) {
+    throw new Error('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
+  }
 }
 
 module.exports = LikeRepository;
