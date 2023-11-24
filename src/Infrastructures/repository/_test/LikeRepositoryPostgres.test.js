@@ -66,10 +66,10 @@ describe('LikeRepositoryPostgres', () => {
       await ThreadTableTestHelper.addThread({});
       await CommentsTableTestHelper.addComment({});
       await LikesTableTestHelper.addLike({});
-      
+
       const likeRepositoryPostgres = new LikeRepositoryPostgres(
           pool, {},
-          );
+      );
 
       // action
       const result = await likeRepositoryPostgres
