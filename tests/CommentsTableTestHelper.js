@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 const pool = require('../src/Infrastructures/database/postgres/pool');
 
-const ThreadTableTestHelper = {
+const CommentsTableTestHelper = {
   async addComment({
     id = 'comment-123',
     content = 'ini comment',
@@ -30,4 +30,4 @@ const ThreadTableTestHelper = {
   },
 };
 
-module.exports = ThreadTableTestHelper;
+module.exports = CommentsTableTestHelper;
