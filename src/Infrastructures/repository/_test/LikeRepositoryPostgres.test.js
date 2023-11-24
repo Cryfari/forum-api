@@ -119,7 +119,7 @@ describe('LikeRepositoryPostgres', () => {
           .getLikeCountOfComment('comment-123');
 
       // assert
-      expect(result).toEqual({likeCount: '2'});
+      expect(result).toEqual('2');
     });
   });
 });
