@@ -38,7 +38,7 @@ describe('LikeRepositoryPostgres', () => {
       const like = await LikesTableTestHelper.findLikeById('like-123');
       expect(like[0].id).toEqual('like-123');
       expect(like[0].comment).toEqual('comment-123');
-      expect(like[0].owner).toEqual('owner-123');
+      expect(like[0].owner).toEqual('user-123');
     });
   });
   describe('unLike function', () => {
@@ -119,7 +119,7 @@ describe('LikeRepositoryPostgres', () => {
           .getLikeCountOfComment('comment-123');
 
       // assert
-      expect(result).toEqual(2);
+      expect(result).toEqual({likeCount: '2'});
     });
   });
 });
