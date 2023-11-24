@@ -2,7 +2,7 @@
 const pool = require('../src/Infrastructures/database/postgres/pool');
 
 const LikesTableTestHelper = {
-  async addComment({
+  async addLike({
     id = 'like-123',
     commentId = 'comment-123',
     owner = 'user-123',
@@ -14,7 +14,7 @@ const LikesTableTestHelper = {
 
     await pool.query(query);
   },
-  async findCommentById(id) {
+  async findLikeById(id) {
     const query = {
       text: 'SELECT * FROM likes WHERE id = $1',
       values: [id],
