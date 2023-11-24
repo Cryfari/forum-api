@@ -98,11 +98,16 @@ describe('LikeRepositoryPostgres', () => {
   describe('unLike function', () => {
     it('should return count like of comment correctly', async () => {
       await UsersTableTestHelper.addUser({});
+      await UsersTableTestHelper.addUser({
+        id: 'user-456',
+        username: 'dico',
+      });
       await ThreadTableTestHelper.addThread({});
       await CommentsTableTestHelper.addComment({});
       await LikesTableTestHelper.addLike({});
       await LikesTableTestHelper.addLike({
         id: 'like-456',
+        owner: 'user-456',
       });
 
       const likeRepositoryPostgres = new LikeRepositoryPostgres(
