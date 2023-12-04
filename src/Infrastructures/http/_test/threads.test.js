@@ -154,4 +154,38 @@ describe('/threads endpoint', () => {
       expect(responseJson.message).toBeDefined();
     });
   });
+  describe('when GET /threads', () => {
+    it('should response 200 and provide all thread', async () => {
+      // Arrange
+      await ThreadsTableTestHelper.addThread({});
+      await ThreadsTableTestHelper.addThread({
+        id: 'thread-456',
+      });
+      const server = await createServer(container);
+
+      // Action
+      const response = await server.inject({
+        method: 'GET',
+        url: '/threads',
+      });
+
+
+      // Assert
+      const responseJson = JSON.parse(response.payload);
+      expect(response.statusCode).toEqual(200);
+      expect(responseJson.status).toEqual('success');
+      expect(responseJson.data.threads).toBeDefined();
+      expect(Array.isArray(responseJson.data.threads)).toBe(true);
+      expect(responseJson.data.threads[0].id).toEqual('thread-456');
+      expect(responseJson.data.threads[0].title).toBeDefined();
+      expect(responseJson.data.threads[0].body).toBeDefined();
+      expect(responseJson.data.threads[0].date).toBeDefined();
+      expect(responseJson.data.threads[0].username).toBeDefined();
+      expect(responseJson.data.threads[1].id).toEqual('thread-123');
+      expect(responseJson.data.threads[1].title).toBeDefined();
+      expect(responseJson.data.threads[1].body).toBeDefined();
+      expect(responseJson.data.threads[1].date).toBeDefined();
+      expect(responseJson.data.threads[1].username).toBeDefined();
+    });
+  });
 });
