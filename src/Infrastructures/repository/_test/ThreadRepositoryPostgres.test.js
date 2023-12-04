@@ -91,4 +91,32 @@ describe('ThreadRepositoryPostgres', () => {
       expect(thread.username).toBeDefined();
     });
   });
+  describe('getAllThread function', () => {
+    it('should return all thread correcly', async () => {
+      // arrange
+      const threadRepositoryPostgres = new ThreadRepositoryPostgres(pool, {});
+      await UsersTableTestHelper.addUser({});
+      await ThreadTableTestHelper.addThread({});
+      await ThreadTableTestHelper.addThread({
+        id: 'thread-234',
+      });
+
+      // action
+      const thread = await threadRepositoryPostgres.getAllThread();
+      console.log(thread);
+      // assert
+      expect(Array.isArray(thread)).toBe(true);
+      expect(thread).toHaveLength(2);
+      expect(thread[0].id).toEqual('thread-234');
+      expect(thread[0].title).toBeDefined();
+      expect(thread[0].body).toBeDefined();
+      expect(thread[0].date).toBeDefined();
+      expect(thread[0].username).toBeDefined();
+      expect(thread[1].id).toEqual('thread-123');
+      expect(thread[1].title).toBeDefined();
+      expect(thread[1].body).toBeDefined();
+      expect(thread[1].date).toBeDefined();
+      expect(thread[1].username).toBeDefined();
+    });
+  });
 });
