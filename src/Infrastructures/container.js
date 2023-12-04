@@ -57,6 +57,9 @@ const AddThreadUseCase = require(
 const GetThreadUseCase = require(
     '../Applications/use_case/threads/GetThreadUseCase',
 );
+const GetAllThreadUseCase = require(
+    '../Applications/use_case/threads/GetAllThreadUseCase',
+);
 const AddCommentUseCase = require(
     '../Applications/use_case/comments/AddCommentUseCase',
 );
@@ -384,6 +387,19 @@ container.register([
         {
           name: 'likeRepository',
           internal: LikeRepository.name,
+        },
+      ],
+    },
+  },
+  {
+    key: GetAllThreadUseCase.name,
+    Class: GetAllThreadUseCase,
+    parameter: {
+      injectType: 'destructuring',
+      dependencies: [
+        {
+          name: 'threadRepository',
+          internal: ThreadRepository.name,
         },
       ],
     },
