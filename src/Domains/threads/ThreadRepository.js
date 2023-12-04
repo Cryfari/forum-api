@@ -17,6 +17,12 @@ class ThreadRepository {
     throw new Error('THREAD_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
   /**
+   * abstract function for get all thread
+   */
+  async getAllThread() {
+    throw new Error('THREAD_REPOSITORY.METHOD_NOT_IMPLEMENTED');
+  }
+  /**
    * abstract function for check available thread
    * @param {String} threadId
    */

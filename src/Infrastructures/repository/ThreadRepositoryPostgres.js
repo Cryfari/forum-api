@@ -51,6 +51,18 @@ class ThreadRepositoryPostgres extends ThreadRepository {
     return result.rows[0];
   }
   /**
+   * get all threads from database
+   */
+  async getAllThread() {
+    const query = `SELECT threads.id, threads.title, threads.body,
+                    threads.date, users.username
+                    FROM threads LEFT JOIN users
+                    ON threads.owner = users.id
+                    ORDER BY threads.date DESC`;
+    const result = await this._pool.query(query);
+    return result.rows;
+  }
+  /**
    * @param {string} threadId
    */
   async verifyAvailableThread(threadId) {
